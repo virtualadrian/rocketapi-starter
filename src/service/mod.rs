@@ -1,2 +1,2 @@
 
-pub mod albums;
+pub mod feature_module;
