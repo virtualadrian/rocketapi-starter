@@ -49,12 +49,19 @@ curl http://localhost:8000
 > curl http://localhost:9000
 > ```
 
+
+### Next Steps:
+Look into data and ORM  
+https://github.com/diesel-rs/diesel
+
 #### Note:
 This is my first walkthrough, Google would be faster unless a question/issue is
 in response to an error on my part, or an improvement.
 
 All constructive input is welcome!
 
+#### More From The Authors :
+https://rocket.rs/
 
 
 #### Current Versions:
