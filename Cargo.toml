@@ -6,3 +6,4 @@ authors = ["Adrian Pavelescu <adrian.pavelescu@gmail.com>"]
 [dependencies]
 rocket = "0.3.2"
 rocket_codegen = "0.3.2"
+sys-info = "*"

@@ -4,6 +4,7 @@ version = "0.1.0"
 dependencies = [
  "rocket 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "rocket_codegen 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sys-info 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -319,6 +320,15 @@ version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "sys-info"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "gcc 0.3.54 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.30 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "time"
 version = "0.1.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -445,6 +455,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum serde 1.0.14 (registry+https://github.com/rust-lang/crates.io-index)" = "bcb6a7637a47663ee073391a139ed07851f27ed2532c2abc88c6bf27a16cdf34"
 "checksum smallvec 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)" = "8fcd03faf178110ab0334d74ca9631d77f94c8c11cc77fcb59538abf0025695d"
 "checksum state 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "3205ddf193c68751abcb17262a430c4c32f0d4cdc6b7f7c8915db442b9579012"
+"checksum sys-info 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)" = "6e0c80518e54ce6bd40e8262b386395f2154dcfaf22ff8102380dc5c7bed3683"
 "checksum time 0.1.38 (registry+https://github.com/rust-lang/crates.io-index)" = "d5d788d3aa77bc0ef3e9621256885555368b47bd495c13dd2e7413c89f845520"
 "checksum toml 0.4.5 (registry+https://github.com/rust-lang/crates.io-index)" = "a7540f4ffc193e0d3c94121edb19b055670d369f77d5804db11ae053a45b6e7e"
 "checksum traitobject 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "efd1f82c56340fdf16f2a953d7bda4f8fdffba13d93b00844c25572110b26079"

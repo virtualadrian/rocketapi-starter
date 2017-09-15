@@ -1,6 +1,8 @@
 
-
 pub mod feature_module {
+
+    use sys_info::LoadAvg;
+    use sys_info::loadavg;
 
 
     #[derive(FromForm)]
@@ -17,6 +19,14 @@ pub mod feature_module {
     #[get("/howdy")]
     pub fn howdy_index() -> String {
          format!("Hello 2.0 from the {} !", get_module_path())
+    }
+
+    #[get("/howdy/load")]
+    pub fn howdy_load() -> String {
+        let mut load: LoadAvg = loadavg().unwrap();
+
+
+        format!("Load Average ONE Minute {} !", load.one)
     }
 
     #[get("/howdy/format")]
