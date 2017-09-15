@@ -1,7 +1,6 @@
 # rocketapi-starter
 
-#### Followed a Rusty book and hopped on RocketAPI ... ~ this is the aftermath ~
-
+### Rust and Rocket ... ~ this is the aftermath ~
 
  * _Get Started with Rultlang_
    * https://rustup.rs/
@@ -9,7 +8,7 @@
    * https://rocket.rs/
 
 
-#### Terminal Ahead
+### Quick Start
 ```shell
 
 # install rustlang
@@ -40,8 +39,18 @@ curl http://localhost:8000
 
 ```
 
+### Environments and Rocket.toml
+
+** Explore Rocket.toml for environment specific settings. **
+> To Launch Staging:
+>```shell
+> ROCKET_ENV=staging ./target/debug/rocketapi-starter
+>
+> curl http://localhost:9000
+> ```
+
 #### Note:
-This is my first walkthrough, Google would be faster unless a question/issue is 
+This is my first walkthrough, Google would be faster unless a question/issue is
 in response to an error on my part, or an improvement.
 
 All constructive input is welcome!
