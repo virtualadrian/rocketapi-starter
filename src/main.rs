@@ -2,6 +2,12 @@
 #![plugin(rocket_codegen)]
 
 extern crate rocket;
+extern crate rocket_contrib;
+extern crate sys_info;
+
+#[macro_use] extern crate serde_derive;
+
+
 
 mod service;
 mod static_fmod;
@@ -16,6 +22,7 @@ fn main() {
                             feature_module::howdy_index,
                             feature_module::howdy_format,
                             feature_module::howdy_name,
+                            feature_module::howdy_load,
                             feature_module::howdy_person_query])
         .mount("/app", routes![static_index,
                                static_files])
