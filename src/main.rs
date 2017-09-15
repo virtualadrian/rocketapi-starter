@@ -4,9 +4,10 @@
 extern crate rocket;
 
 mod service;
+mod static_fmod;
 
 use service::feature_module::*;
-
+use static_fmod::*;
 
 fn main() {
     // ignite routes importaned
@@ -16,5 +17,7 @@ fn main() {
                             feature_module::howdy_format,
                             feature_module::howdy_name,
                             feature_module::howdy_person_query])
+        .mount("/app", routes![static_index,
+                               static_files])
         .launch();
 }
