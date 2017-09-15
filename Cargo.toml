@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Adrian Pavelescu <adrian.pavelescu@gmail.com>"]
 
 [dependencies]
-rocket = "0.3.2"
-rocket_codegen = "0.3.2"
+rocket = "*"
+rocket_codegen = "*"
+rocket_contrib = "*"
 sys-info = "*"
+serde = "*"
+serde_json = "*"
+serde_derive = "*"

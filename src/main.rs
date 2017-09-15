@@ -3,6 +3,14 @@
 
 extern crate rocket;
 extern crate sys_info;
+extern crate serde_json;
+
+
+
+#[macro_use] extern crate rocket_contrib;
+#[macro_use] extern crate serde_derive;
+
+
 
 mod service;
 mod static_fmod;
