@@ -41,7 +41,7 @@ curl http://localhost:8000
 
 ### Environments and Rocket.toml
 
-** Explore Rocket.toml for environment specific settings. **
+**Explore Rocket.toml for environment specific settings.**
 > To Launch Staging:
 >```shell
 > ROCKET_ENV=staging ./target/debug/rocketapi-starter
@@ -51,17 +51,18 @@ curl http://localhost:8000
 
 
 ### Next Steps:
-Look into data and ORM  
-https://github.com/diesel-rs/diesel
+> Look into data and ORM  
+> https://github.com/diesel-rs/diesel
 
 #### Note:
-This is my first walkthrough, Google would be faster unless a question/issue is
-in response to an error on my part, or an improvement.
-
-All constructive input is welcome!
+> This is my first walkthrough, Google would be faster unless a question/issue is
+> in response to an error on my part, or an improvement.
+>
+> All constructive input is welcome!
+>
 
 #### More From The Authors :
-https://rocket.rs/
+> https://rocket.rs/
 
 
 #### Current Versions:
