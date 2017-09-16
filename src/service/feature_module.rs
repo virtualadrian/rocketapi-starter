@@ -4,7 +4,7 @@ pub mod feature_module {
     use rocket_contrib::{Json};
 
     use sys_info::{LoadAvg, MemInfo};
-    use sys_info::{loadavg, mem_info, cpu_num};
+    use sys_info::{loadavg, mem_info, cpu_num, os_release, os_type, hostname, cpu_speed};
 
     #[derive(FromForm)]
     pub struct Person {
@@ -32,7 +32,11 @@ pub mod feature_module {
 
     #[derive(Serialize)]
     pub struct SystemInfo {
+        host: String,
+        os: String,
+        rel: String,
         c_cnt: u32,
+        c_frq: u64,
         cpu: CpuInf,
         mem: MemInf
     }
@@ -69,13 +73,15 @@ pub mod feature_module {
                     person.age)
     }
 
-
-
     // private methods
     fn sysinf() -> SystemInfo {
+        let host: String = hostname().unwrap();
+        let os: String = os_type().unwrap();
+        let rel: String = os_release().unwrap();
         let load: LoadAvg = loadavg().unwrap();
         let mem_inf: MemInfo = mem_info().unwrap();
         let cpu_cnt: u32 = cpu_num().unwrap();
+        let cpu_frq: u64 = cpu_speed().unwrap();
 
         let cpu: CpuInf = CpuInf::from(CpuInf{
             one: load.one,
@@ -94,7 +100,11 @@ pub mod feature_module {
         });
 
         let info: SystemInfo = SystemInfo::from(SystemInfo{
+            host: host,
+            os: os,
+            rel: rel,
             c_cnt: cpu_cnt,
+            c_frq: cpu_frq,
             cpu: cpu,
             mem: mem
         });
