@@ -47,7 +47,7 @@ pub mod feature_module {
          format!("Hello 2.0 from the {} !", get_module_path())
     }
 
-    #[get("/howdy/load")]
+    #[get("/howdy/sysload")]
     pub fn howdy_load() -> Json<SystemInfo> {
         Json(sysinf())
     }
