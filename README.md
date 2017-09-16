@@ -39,6 +39,26 @@ curl http://localhost:8000
 
 ```
 
+
+### Switch to Nightly
+
+```shell
+
+# change default
+rustup default nightly
+
+# oveerride to nightly fif needed
+rustup override set nightly
+
+#update Rustlang
+rustup update
+
+# update Cargo
+cargo update
+
+```
+
+
 ### Environments and Rocket.toml
 
 **Explore Rocket.toml for environment specific settings.**
@@ -50,7 +70,7 @@ curl http://localhost:8000
 > ```
 
 
-### Next Steps:
+#### Next Steps:
 > Look into data and ORM  
 > https://github.com/diesel-rs/diesel
 
