@@ -6,41 +6,6 @@ pub mod feature_module {
     use sys_info::{LoadAvg, MemInfo};
     use sys_info::{loadavg, mem_info, cpu_num, os_release, os_type, hostname, cpu_speed};
 
-    #[derive(FromForm)]
-    pub struct Person {
-        name: String,
-        age: String
-    }
-
-    #[derive(Serialize)]
-    pub struct CpuInf {
-        one: f64,
-        five: f64,
-        fifteen: f64
-    }
-
-    #[derive(Serialize)]
-    pub struct MemInf {
-        total: u64,
-        free: u64,
-        avail: u64,
-        buffers: u64,
-        cached: u64,
-        swap_total: u64,
-        swap_free: u64,
-    }
-
-    #[derive(Serialize)]
-    pub struct SystemInfo {
-        host: String,
-        os: String,
-        rel: String,
-        c_cnt: u32,
-        c_frq: u64,
-        cpu: CpuInf,
-        mem: MemInf
-    }
-
     #[get("/")]
     pub fn index() -> String {
          format!("Hello world!")

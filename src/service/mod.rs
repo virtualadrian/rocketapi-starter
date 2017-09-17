@@ -1,2 +1,2 @@
 
-pub mod feature_module;
+pub mod feature;
