@@ -14,18 +14,18 @@ extern crate sys_info;
 mod service;
 mod static_fmod;
 
-use service::feature::feature_controller;
+use service::*;
 use static_fmod::*;
 
 fn main() {
     // ignite routes importaned
     rocket::ignite()
-        .mount("/", routes![feature_controller::index,
-                            feature_controller::howdy_index,
-                            feature_controller::howdy_format,
-                            feature_controller::howdy_name,
-                            feature_controller::howdy_load,
-                            feature_controller::howdy_person_query])
+        .mount("/", routes![feature::index,
+                            feature::howdy_index,
+                            feature::howdy_format,
+                            feature::howdy_name,
+                            feature::howdy_load,
+                            feature::howdy_person_query])
         .mount("/app", routes![static_index,
                                static_files])
         .launch();
