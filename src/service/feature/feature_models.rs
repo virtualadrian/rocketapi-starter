@@ -26,41 +26,11 @@ pub struct MemInf {
 
 #[derive(Serialize, Deserialize)]
 pub struct SystemInfo {
-    host: String,
+    pub host: String,
     pub os: String,
     pub rel: String,
     pub c_cnt: u32,
     pub c_frq: u64,
     pub cpu: CpuInf,
     pub mem: MemInf,
-}
-
-impl SystemInfo {
-    pub fn set_host(&mut self, host: String) {
-        self.host = host;
-    }
-
-    pub fn get_host(&self) -> String {
-        self.host.to_string()
-    }
-
-    pub fn new(
-        host: String,
-        os: String,
-        rel: String,
-        c_cnt: u32,
-        c_frq: u64,
-        cpu: CpuInf,
-        mem: MemInf,
-    ) -> SystemInfo {
-        SystemInfo {
-            host,
-            os,
-            rel,
-            c_cnt,
-            c_frq,
-            cpu,
-            mem,
-        }
-    }
 }
