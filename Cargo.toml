@@ -1,13 +1,16 @@
 [package]
 name = "rocketapi-starter"
 version = "0.1.0"
-authors = ["Adrian Pavelescu <adrian.pavelescu@gmail.com>"]
+authors = ["Adrian Pavelescu <adrian@acpgr.com>"]
+edition = "2018"
 
 [dependencies]
-rocket = "0.3.2"
-rocket_codegen = "0.3.2"
-rocket_contrib = "0.3.2"
+rocket = "0.4.0-rc.1"
 sys-info = "*"
-serde = "*"
-serde_json = "*"
-serde_derive = "*"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+jsonwebtoken = "5"
+
+[dependencies.rocket_contrib]
+version = "0.4.0-rc.1"

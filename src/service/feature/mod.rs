@@ -1,7 +1,11 @@
-pub mod feature_service;
-pub mod feature_models;
+use rocket::request::Form;
+use rocket::Rocket;
+use rocket_contrib::json::Json;
 
-use rocket_contrib::Json;
+pub mod feature_models;
+pub mod feature_service;
+
+use feature_models::*;
 
 #[get("/")]
 pub fn index() -> String {
@@ -17,7 +21,7 @@ pub fn howdy_index() -> String {
 }
 
 #[get("/howdy/sysload")]
-pub fn howdy_load() -> Json<feature_models::SystemInfo> {
+pub fn howdy_load() -> Json<SystemInfo> {
     Json(feature_service::sysinf())
 }
 
@@ -34,11 +38,27 @@ pub fn howdy_name(name: String) -> String {
     format!("Howdy there! You told me your name is: {}.", name)
 }
 
-#[get("/howdy?<person>")]
-pub fn howdy_person_query(person: feature_models::Person) -> String {
+#[post("/howdy", data = "<person>")]
+pub fn howdy_person_query(person: Form<Person>) -> String {
     format!(
         "Howdy there! You told me your name is: {}, and you are: {} years old.",
-        person.name,
-        person.age
+        person.name, person.age
     )
+}
+
+#[post("/howdy/json", data = "<person>")]
+pub fn howdy_person_json(person: Json<Person>) -> String {
+    format!(
+        "Howdy there! You told me your name is: {}, and you are: {} years old.",
+        person.name, person.age
+    )
+}
+
+pub fn route(rocket: Rocket) -> Rocket {
+    rocket
+        .mount("/", routes![index, howdy_index, howdy_format, howdy_name])
+        .mount(
+            "/",
+            routes![howdy_load, howdy_person_query, howdy_person_json],
+        )
 }

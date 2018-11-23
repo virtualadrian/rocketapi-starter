@@ -1,8 +1,7 @@
-
+use sys_info::{cpu_num, cpu_speed, hostname, loadavg, mem_info, os_release, os_type};
 use sys_info::{LoadAvg, MemInfo};
-use sys_info::{loadavg, mem_info, cpu_num, os_release, os_type, hostname, cpu_speed};
 
-use service::feature::feature_models::*;
+use super::feature_models::{CpuInf, MemInf, SystemInfo};
 
 // private methods
 pub fn sysinf() -> SystemInfo {
@@ -20,7 +19,7 @@ pub fn sysinf() -> SystemInfo {
         fifteen: load.fifteen,
     };
 
-    let mem: MemInf = MemInf::from(MemInf {
+    let mem: MemInf = MemInf {
         total: mem_inf.total,
         free: mem_inf.free,
         avail: mem_inf.avail,
@@ -28,19 +27,9 @@ pub fn sysinf() -> SystemInfo {
         cached: mem_inf.cached,
         swap_total: mem_inf.swap_total,
         swap_free: mem_inf.swap_free,
-    });
-
-    let info: SystemInfo = SystemInfo {
-        host: host,
-        os: os,
-        rel: rel,
-        c_cnt: cpu_cnt,
-        c_frq: cpu_frq,
-        cpu: cpu,
-        mem: mem,
     };
 
-    info
+    SystemInfo::new(host, os, rel, cpu_cnt, cpu_frq, cpu, mem)
 }
 
 pub fn plus_one(x: i32) -> i32 {

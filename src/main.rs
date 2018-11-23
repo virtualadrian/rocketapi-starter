@@ -1,37 +1,16 @@
-#![feature(const_atomic_bool_new)]
-#![feature(const_atomic_bool_new)]
-#![feature(plugin, custom_derive)]
-#![plugin(rocket_codegen)]
-
-extern crate rocket;
-extern crate rocket_contrib;
-extern crate sys_info;
+#![feature(proc_macro_hygiene, decl_macro, uniform_paths)]
 
 #[macro_use]
-extern crate serde_derive;
-
-
+extern crate rocket;
+extern crate sys_info;
+use rocket::Rocket;
 
 mod service;
-mod static_fmod;
-
-use service::*;
-use static_fmod::*;
+use service::feature;
 
 fn main() {
     // ignite routes importaned
-    rocket::ignite()
-        .mount(
-            "/",
-            routes![
-                feature::index,
-                feature::howdy_index,
-                feature::howdy_format,
-                feature::howdy_name,
-                feature::howdy_load,
-                feature::howdy_person_query,
-            ],
-        )
-        .mount("/app", routes![static_index, static_files])
-        .launch();
+    let mut rocket = Rocket::ignite();
+    rocket = feature::mount(rocket);
+    rocket.launch();
 }
