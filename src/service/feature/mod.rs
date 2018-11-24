@@ -1,4 +1,3 @@
-use super::auth::application_user::User;
 use feature_models::*;
 use rocket::request::Form;
 use rocket::Rocket;
@@ -43,24 +42,11 @@ pub fn howdy_person_query(person: Form<Person>) -> String {
     )
 }
 
-#[post("/howdy/json", data = "<person>")]
-pub fn howdy_person_json(_user: User, person: Json<Person>) -> String {
-    println!("HIT!");
-    format!(
-        "Howdy there! You told me your name is: {}, and you are: {} years old.",
-        person.name, person.age
-    )
-}
-
 pub fn mount(rocket: Rocket) -> Rocket {
     rocket
         .mount("/", routes![index])
         .mount("/", routes![howdy_index, howdy_format, howdy_name])
-        .mount(
-            "/",
-            routes![howdy_load, howdy_person_query, howdy_person_json],
-        )
-        .mount("/user", routes![howdy_person_json])
+        .mount("/", routes![howdy_load, howdy_person_query])
 }
 
 pub mod feature_models;
