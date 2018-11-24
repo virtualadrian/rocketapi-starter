@@ -8,7 +8,7 @@ pub fn sysinf() -> SystemInfo {
     let load: LoadAvg = loadavg().unwrap();
     let mem_inf: MemInfo = mem_info().unwrap();
 
-    SystemInfo {
+    let info: SystemInfo = SystemInfo {
         host: hostname().unwrap(),
         os: os_type().unwrap(),
         rel: os_release().unwrap(),
@@ -28,7 +28,9 @@ pub fn sysinf() -> SystemInfo {
             swap_total: mem_inf.swap_total,
             swap_free: mem_inf.swap_free,
         },
-    }
+    };
+
+    info
 }
 
 pub fn plus_one(x: i32) -> i32 {

@@ -1,6 +1,5 @@
-use super::auth;
+use super::auth::application_user::User;
 use feature_models::*;
-use rocket::handler::Handler;
 use rocket::request::Form;
 use rocket::Rocket;
 use rocket_contrib::json::Json;
@@ -45,7 +44,7 @@ pub fn howdy_person_query(person: Form<Person>) -> String {
 }
 
 #[post("/howdy/json", data = "<person>")]
-pub fn howdy_person_json(_user: auth::User, person: Json<Person>) -> String {
+pub fn howdy_person_json(_user: User, person: Json<Person>) -> String {
     println!("HIT!");
     format!(
         "Howdy there! You told me your name is: {}, and you are: {} years old.",
