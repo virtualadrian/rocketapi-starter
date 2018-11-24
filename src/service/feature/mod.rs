@@ -1,5 +1,6 @@
 use super::auth;
 use feature_models::*;
+use rocket::handler::Handler;
 use rocket::request::Form;
 use rocket::Rocket;
 use rocket_contrib::json::Json;
@@ -54,7 +55,8 @@ pub fn howdy_person_json(_user: auth::User, person: Json<Person>) -> String {
 
 pub fn mount(rocket: Rocket) -> Rocket {
     rocket
-        .mount("/", routes![index, howdy_index, howdy_format, howdy_name])
+        .mount("/", routes![index])
+        .mount("/", routes![howdy_index, howdy_format, howdy_name])
         .mount(
             "/",
             routes![howdy_load, howdy_person_query, howdy_person_json],
